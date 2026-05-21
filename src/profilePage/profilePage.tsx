@@ -44,12 +44,17 @@ const ProfilePage: React.FC = () => {
         <div className="profile-hero-side-gradient" />
         <div className="profile-hero-bottom-gradient" />
         <div className="profile-hero-content">
-          <ProfileBanner bannerData={profileBannerData} />
+          {/* 🚀 FIXED: We are passing the active profile down to the banner! */}
+          <ProfileBanner bannerData={profileBannerData} activeProfile={currentProfile} />
         </div>
       </div>
 
       <div className="profile-rows">
-        <TopPicksRow profile={currentProfile} />
+        {/* 🚀 CONDITIONAL ROW: Hides "Trending Now" ONLY when the Stalker profile is active */}
+        {currentProfile !== 'stalker' && (
+          <TopPicksRow profile={currentProfile} />
+        )}
+        
         <ContinueWatching profile={currentProfile} />
       </div>
     </div>

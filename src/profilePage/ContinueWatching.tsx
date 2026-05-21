@@ -1,15 +1,30 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './TopPicksRow.css'; 
-import { FaBookOpen, FaImages, FaWrench, FaEnvelope, FaUsers, FaLaptopCode, FaPenNib } from 'react-icons/fa';
+import { 
+  FaBookOpen, FaImages, FaWrench, FaEnvelope, FaUsers, 
+  FaLaptopCode, FaPenNib, FaChartLine, FaGamepad, 
+  FaUserSecret, FaHeadphones, FaBook, FaMicrophoneAlt, FaCameraRetro
+} from 'react-icons/fa';
 import { ProfileType } from '../types';
 
-// 🚀 FIXED: The foolproof file name bypass pointing to writeups.png!
+// 🎬 STANDARD IMAGES
 import caseStudyImg from '../images/case-study.png';
 import visualGalleryImg from '../images/visual-gallery.png';
 import skillsImg from '../images/skills.png';
 import contactMeImg from '../images/contact-me.png';
 import thoughtLeadershipImg from '../images/writeups.png';
+
+// 🚀 CUSTOM STRATEGIST THUMBNAILS
+import aiCreativeSystemImg from '../images/ai-creative-system.png';
+import moodboardUniverseImg from '../images/moodboard-universe.png';
+import engagementDesignImg from '../images/engagement-design.png';
+import contentEcosystemImg from '../images/content-ecosystem.png'; 
+import viralMechanicsImg from '../images/viral-mechanics.png'; 
+
+// 🎮 COOL ARCADE COVERS
+import arcadeCoverImg from '../images/arcade-cover.png';
+import neonCoverImg from '../images/neon-cover.png';
 
 interface ContinueWatchingProps {
   profile: ProfileType;
@@ -31,17 +46,24 @@ const continueWatchingConfig: Record<ProfileType, { title: string; imgSrc: strin
     { title: "Contact Me", imgSrc: contactMeImg, route: "/contact-me", icon: <FaEnvelope /> }
   ],
   'Brand & Content Strategist': [
-    { title: "AI Creative Systems", imgSrc: skillsImg, route: "/ai-creative-systems", icon: <FaLaptopCode /> }, 
+    { title: "AI Creative Systems", imgSrc: aiCreativeSystemImg, route: "/ai-creative-systems", icon: <FaLaptopCode /> }, 
     { title: "LinkedIn Writeups", imgSrc: thoughtLeadershipImg, route: "/linkedin-writeups", icon: <FaPenNib /> },
-    { title: "Moodboard Universe", imgSrc: visualGalleryImg, route: "/moodboards", icon: <FaImages /> },
-    { title: "Engagement Design", imgSrc: caseStudyImg, route: "/engagement", icon: <FaUsers /> },
-    { title: "Content Ecosystems", imgSrc: contactMeImg, route: "/ecosystems", icon: <FaLaptopCode /> }
+    { title: "Moodboard Universe", imgSrc: moodboardUniverseImg, route: "/moodboards", icon: <FaImages /> },
+    { title: "Engagement Design", imgSrc: engagementDesignImg, route: "/engagement", icon: <FaUsers /> },
+    { title: "Content Ecosystems", imgSrc: contentEcosystemImg, route: "/ecosystems", icon: <FaLaptopCode /> },
+    { title: "Viral Mechanics", imgSrc: viralMechanicsImg, route: "/viral-mechanics", icon: <FaChartLine /> } 
   ],
   stalker: [
-    { title: "Social Links", imgSrc: visualGalleryImg, route: "/contact-me", icon: <FaUsers /> }
+    // 🕵️ THE "DEEP LORE" ROW (Socials, Media, Aesthetic)
+    { title: "Digital Footprint", imgSrc: contactMeImg, route: "/contact-me", icon: <FaUserSecret /> },
+    { title: "The Bookshelf", imgSrc: caseStudyImg, route: "/books", icon: <FaBook /> },
+    { title: "On Repeat (Music)", imgSrc: visualGalleryImg, route: "/music", icon: <FaHeadphones /> },
+    { title: "Top Podcasts", imgSrc: thoughtLeadershipImg, route: "/podcasts", icon: <FaMicrophoneAlt /> },
+    { title: "Life & Lens", imgSrc: skillsImg, route: "/gallery", icon: <FaCameraRetro /> }
   ],
   Adventurer: [
-    { title: "Travel Blog", imgSrc: caseStudyImg, route: "/blog", icon: <FaImages /> }
+    { title: "Classic Arcade", imgSrc: arcadeCoverImg, route: "/game", icon: <FaGamepad /> },
+    { title: "Neon Matrix", imgSrc: neonCoverImg, route: "/neon-matrix", icon: <FaGamepad /> }
   ]
 };
 

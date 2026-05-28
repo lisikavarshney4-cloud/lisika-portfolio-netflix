@@ -15,6 +15,9 @@ import Blogs from './pages/Blogs';
 import Game from './pages/Game';
 import Certifications from './pages/Certifications';
 
+// 📚 STALKER "DEEP LORE" FILES
+import Bookshelf from './pages/Bookshelf';
+
 // 🚀 ARCADE IMPORTS
 import NeonMatrix from './pages/NeonMatrix'; 
 
@@ -32,6 +35,9 @@ import MoodboardUniverse from './pages/MoodboardUniverse';
 import EngagementDesign from './pages/EngagementDesign';
 import ContentEcosystems from './pages/ContentEcosystems';
 
+// 🕵️ THE NEW IMMERSIVE SUBCONSCIOUS EXPERIENCE (FIXED TO MATCH YOUR SIDEBAR)
+import SubconsciousStream from './pages/StalkerProfile';
+
 const App: React.FC = () => {
   return (
     <Routes>
@@ -39,7 +45,10 @@ const App: React.FC = () => {
       <Route path="/" element={<NetflixTitle />} />
       <Route path="/browse" element={<Browse />} />
       
-      {/* Master Profile Control Dashboard */}
+      {/* 🕵️ THE INTERCEPTOR: Catches the 'stalker' profile */}
+      <Route path="/profile/stalker" element={<SubconsciousStream />} />
+
+      {/* Master Profile Control Dashboard (Handles Recruiter, Strategist, Adventurer) */}
       <Route path="/profile/:profileName" element={<Layout><ProfilePage /></Layout>} />
       
       {/* Standard Portfolio Rows */}
@@ -52,6 +61,9 @@ const App: React.FC = () => {
       <Route path="/reading" element={<Layout><Reading /></Layout>} />
       <Route path="/blogs" element={<Layout><Blogs /></Layout>} />
       
+      {/* 📚 DEEP LORE ZONE */}
+      <Route path="/books" element={<Layout><Bookshelf /></Layout>} />
+      
       {/* 🚀 ARCADE ZONE */}
       <Route path="/game" element={<Game />} />
       <Route path="/neon-matrix" element={<NeonMatrix />} />
@@ -62,7 +74,6 @@ const App: React.FC = () => {
       <Route path="/visual-gallery" element={<Layout><VisualGallery /></Layout>} />
       <Route path="/viral-mechanics" element={<Layout><ViralMechanics /></Layout>} />
       
-      {/* 🚀 WIRED UP WITH THE CORRECT IMPORT COMPONENT */}
       <Route path="/linkedin-writeups" element={<Layout><Linkedlnwriteups /></Layout>} />
       
       <Route path="/audience-psychology" element={<Layout><AudiencePsychology /></Layout>} />

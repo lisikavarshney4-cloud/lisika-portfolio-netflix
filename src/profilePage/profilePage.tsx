@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import ProfileBanner from './ProfileBanner';
 import TopPicksRow from './TopPicksRow';
 import ContinueWatching from './ContinueWatching';
+import VisionBoardUniverse from '../pages/VisionBoardUniverse'; // 🎨 THE NEW VISION BOARD
 import './ProfilePage.css';
 import { profileBannerData } from '../data/constants';
 import { ProfileType } from '../types';
@@ -28,6 +29,12 @@ const ProfilePage: React.FC = () => {
   const currentProfile: ProfileType = isProfileType(profileName) ? profileName : 'Recruiter';
   const backgroundImage = backgroundImages[currentProfile];
 
+  // 🎨 CONDITIONAL OVERRIDE: Load the Vision Board if active profile is 'stalker'
+  if (currentProfile === 'stalker') {
+    return <VisionBoardUniverse />;
+  }
+
+  // 💼 Standard Netflix Professional View (For Everyone Else)
   return (
     <div
       className="profile-page-shell"
@@ -44,17 +51,12 @@ const ProfilePage: React.FC = () => {
         <div className="profile-hero-side-gradient" />
         <div className="profile-hero-bottom-gradient" />
         <div className="profile-hero-content">
-          {/* 🚀 FIXED: We are passing the active profile down to the banner! */}
           <ProfileBanner bannerData={profileBannerData} activeProfile={currentProfile} />
         </div>
       </div>
 
       <div className="profile-rows">
-        {/* 🚀 CONDITIONAL ROW: Hides "Trending Now" ONLY when the Stalker profile is active */}
-        {currentProfile !== 'stalker' && (
-          <TopPicksRow profile={currentProfile} />
-        )}
-        
+        <TopPicksRow profile={currentProfile} />
         <ContinueWatching profile={currentProfile} />
       </div>
     </div>

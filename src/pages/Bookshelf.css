@@ -39,7 +39,7 @@
 .hero-title {
   font-size: 3.5rem;
   margin-bottom: 15px;
-  font-family: 'Georgia', serif; 
+  font-family: 'Georgia', serif; /* Gives a classy editorial vibe */
 }
 
 .hero-description {
@@ -64,18 +64,18 @@
   gap: 15px;
   padding: 0 4% 20px;
   overflow-x: auto;
-  scrollbar-width: none; 
+  scrollbar-width: none; /* Hide scrollbar Firefox */
 }
 
 .book-row::-webkit-scrollbar {
-  display: none; 
+  display: none; /* Hide scrollbar Chrome/Safari */
 }
 
 /* --- CARD STYLING --- */
 .book-card {
   min-width: 200px;
   width: 200px;
-  height: 300px; 
+  height: 300px; /* 2:3 aspect ratio for books */
   position: relative;
   border-radius: 8px;
   overflow: hidden;

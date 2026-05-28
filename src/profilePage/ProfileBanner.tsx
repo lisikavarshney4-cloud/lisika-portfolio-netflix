@@ -1,8 +1,8 @@
 import React from 'react';
 import './ProfileBanner.css';
-import { FaInfoCircle, FaPlay, FaGamepad } from 'react-icons/fa';
-import { ProfileType } from '../types'; 
+import { FaInfoCircle, FaPlay } from 'react-icons/fa';
 
+// 🚀 Forcing TypeScript to accept these EXACT props without relying on external files
 interface BannerProps {
   bannerData: {
     headline: string;
@@ -11,10 +11,11 @@ interface BannerProps {
     linkedinLink: string;
     backgroundImage: string;
   };
-  activeProfile?: ProfileType; 
+  activeProfile?: "Recruiter" | "Brand & Content Strategist" | "Adventurer" | string; 
 }
 
-const ProfileBanner: React.FC<BannerProps> = ({ bannerData, activeProfile }) => {
+// Using a standard function declaration makes TypeScript read the props perfectly
+export default function ProfileBanner({ bannerData, activeProfile }: BannerProps) {
   return (
     <div className="banner-content">
       
@@ -77,6 +78,4 @@ const ProfileBanner: React.FC<BannerProps> = ({ bannerData, activeProfile }) => 
       
     </div>
   );
-};
-
-export default ProfileBanner;
+}
